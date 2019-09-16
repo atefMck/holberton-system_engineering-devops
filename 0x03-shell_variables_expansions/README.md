@@ -1,0 +1,1 @@
+This is an awesome project about shell and stuff
