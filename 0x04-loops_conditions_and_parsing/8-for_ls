@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
-curr=(*)
-for f in "${curr[@]}"
-do
-  echo "${f//[0-9]-}"
+for f in *; do
+  echo "$f" | cut -f2 -d'-'
 done
