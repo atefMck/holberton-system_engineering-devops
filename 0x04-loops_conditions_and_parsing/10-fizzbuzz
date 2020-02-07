@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+m=1
+while [ $m -le 100 ]
+do
+  if [[ $((m % 3)) -eq 0 && $((m % 5)) -eq 0 ]]
+  then
+    echo "FizzBuzz"
+  elif [ $((m % 3)) -eq 0 ]
+  then
+    echo "Fizz"
+  elif [ $((m % 5)) -eq 0 ]
+  then
+    echo "Buzz"
+  else
+    echo $m
+  fi
+  m=$((m + 1))
+done
