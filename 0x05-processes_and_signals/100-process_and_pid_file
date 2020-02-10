@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 touch /var/run/holbertonscript.pid
-sudo echo $BASHPID > /var/run/holbertonscript.pid
+echo $BASHPID > /var/run/holbertonscript.pid
 while true
 do
   echo "To infinity and beyond"
