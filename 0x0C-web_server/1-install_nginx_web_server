@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script that installs Nginx and configure it
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
