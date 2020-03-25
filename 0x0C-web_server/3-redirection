@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Script that installs Nginx and configure it
+apt-get -y update
+apt-get -y install nginx
+chown -R $ubuntu:$ubuntu /var/www
+mkdir /var/www/html/redirect_me
+echo "server {
+# Permanent redirect to an individual page
+rewrite ^/redirect_me$ https://www.facebook.com permanent;
+}" >> /etc/nginx/sites_available/redirect_me.conf
+service nginx restart

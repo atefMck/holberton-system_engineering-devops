@@ -2,6 +2,6 @@
 # Script that installs Nginx and configure it
 apt-get -y update
 apt-get -y install nginx
-sudo chown -R $ubuntu:$ubuntu /var/www
-sudo echo "Holberton School" > /var/www/html/index.nginx-debian.html
+chown -R $ubuntu:$ubuntu /var/www
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
 service nginx restart
