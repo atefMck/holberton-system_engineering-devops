@@ -4,6 +4,6 @@ apt-get -y update
 apt-get -y upgrade
 apt-get -y install nginx
 systemctl start nginx
-sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+chown -R ubuntu:ubuntu/var/www
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
 systemctl restart nginx
