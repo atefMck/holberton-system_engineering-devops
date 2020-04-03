@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configures a server with nginx adding a custo header
+apt-get -y update
+apt-get -y install nginx
+service nginx start
+sed -i '/sendfile on;/a \\tadd_header X-Served-By: '$HOSTNAME /etc/nginx/nginx.conf
+service nginx reload
