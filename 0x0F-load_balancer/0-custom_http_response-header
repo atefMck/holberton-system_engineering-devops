@@ -3,5 +3,5 @@
 apt-get -y update
 apt-get -y install nginx
 service nginx start
-sed -i '/sendfile on;/a \\tadd_header X-Served-By: '$HOSTNAME /etc/nginx/nginx.conf
+sed -i '/sendfile on;/a \\tadd_header X-Served-By: '$HOSTNAME';' /etc/nginx/nginx.conf
 service nginx reload
