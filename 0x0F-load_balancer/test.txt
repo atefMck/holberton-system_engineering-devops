@@ -1,0 +1,20 @@
+lqsdsqd
+qsdqsd
+sqdsqdsq
+sqdsqdlisten 1308-lb-01\n\tbind *:80\n\tstats enable\n\tbalance roundrobin\n\tserver 1308-web-01 35.237.127.243:80 check\n\tserver 1308-web-02 54.90.102.32:80 check
+
+listen 1308-lb-01
+bind *:80
+stats enable
+balance roundrobin
+server 1308-web-01 35.237.127.243:80 check
+server 1308-web-02 54.90.102.32:80 check
+ntyooo
+\\n\tyooo
+\n\tyooo
+listen 1308-lb-01
+	bind *:80
+	stats enable
+	balance roundrobin
+	server 1308-web-01 35.237.127.243:80 check
+	server 1308-web-02 54.90.102.32:80 check
