@@ -8,7 +8,7 @@ exec { 'apt-get -y install nginx':
 exec { 'service nginx start':
   provider  => 'shell',
 }
-exec { 'sed -i '/sendfile on;/a \\tadd_header X-Served-By '$HOSTNAME';' /etc/nginx/nginx.conf':
+exec { 'sed -i "/sendfile on;/a \\tadd_header X-Served-By "$HOSTNAME";"" /etc/nginx/nginx.conf':
   provider  => 'shell',
 }
 exec { 'service nginx restart':
