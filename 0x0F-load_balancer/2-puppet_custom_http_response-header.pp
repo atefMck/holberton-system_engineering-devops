@@ -2,14 +2,19 @@
 exec { 'apt-get -y update':
   provider  => 'shell',
 }
--> exec { 'apt-get -y install nginx':
-  provider  => 'shell',
+-> package {'check':
+  name => "nginx",
+  ensure => present,
 }
--> exec { 'service nginx start':
-  provider  => 'shell',
+-> service { 'starting':
+  name => "nginx",
+  ensure => running,
 }
--> exec { 'sed -i "/sendfile on;/a \\tadd_header X-Served-By "$HOSTNAME";" /etc/nginx/nginx.conf':
-  provider  => 'shell',
+-> file { 'Adding header':
+  path => '/etc/nginx/nginx.conf',
+  line   => "	sendfile on;
+  add_header X-Served-By ${hostname};",
+  match  => '^\tsendfile on;',
 }
 -> exec { 'service nginx restart':
   provider  => 'shell',
