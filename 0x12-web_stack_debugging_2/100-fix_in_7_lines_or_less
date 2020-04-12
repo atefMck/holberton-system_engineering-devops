@@ -2,6 +2,5 @@
 # run cmd on another user
 sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
 chown -R nginx:nginx /etc/nginx/
-chmod +rw /etc/nginx/nginx.conf
-pkill apache2
+pkill -f apache2
 su -c 'service nginx start' nginx
