@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # run cmd on another user
-sed -i '0,/#user/a user nginx;' /etc/nginx/nginx.conf
-sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
-chown -R nginx:nginx /etc/nginx/
 pkill -f apache2
-su -c 'service nginx start' nginx
+chmod +rw /etc/nginx/nginx.conf
+sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
+sed -i '0,/#user/a user nginx;' /etc/nginx/nginx.conf
+sudo -u nginx service nginx restart
