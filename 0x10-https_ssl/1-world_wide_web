@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Get info about domain and sub domains
+
+domain=$1
+sub="$2"
+
+if [[ -z "$sub" ]]; then
+	my_array=("www" "lb-01" "web-01" "web-02")
+	for subs in "${my_array[@]}"
+	do
+		record=$(dig "$subs"."$domain" | awk '/ANSWER/{getline; print}' | awk -F " " '{ print $4 }')
+		record=${record//$'\n'/}
+		ip=$(dig "$subs"."$domain" | awk '/ANSWER/{getline; print}' | awk -F " " '{ print $5 }')
+		ip=${ip//$'\n'/}
+		echo "The subdomain ${subs} is a ${record} record and points to ${ip}"
+	done
+else
+	record=$(dig "$sub"."$domain" | awk '/ANSWER/{getline; print}' | awk -F " " '{ print $4 }')
+	record=${record//$'\n'/}
+	ip=$(dig "$sub"."$domain" | awk '/ANSWER/{getline; print}' | awk -F " " '{ print $5 }')
+	ip=${ip//$'\n'/}
+	echo "The subdomain ${sub} is a ${record} record and points to ${ip}"
+fi
