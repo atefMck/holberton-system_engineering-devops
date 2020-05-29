@@ -15,13 +15,13 @@ if __name__ == "__main__":
     data = dict()
     data[str(uid)] = []
     for todo in todo_info:
-        data[str(uid)].append([
+        data[str(uid)].append(
             {
                 "task": todo['title'],
                 "completed": todo['completed'],
                 "username": username
             }
-        ])
+        )
 
     with open(file, 'w', newline='') as jsonfile:
         json.dump(data, jsonfile)
