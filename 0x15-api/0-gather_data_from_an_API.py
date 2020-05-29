@@ -13,7 +13,7 @@ if __name__ == "__main__":
     todo_info = requests.get("{}/{}/todos".format(u_link, uid)).json()
     done = list()
     for todo in todo_info:
-        if todo['completed'] == True:
+        if todo['completed'] is True:
             done.append(todo['title'])
     total = len(todo_info)
     total_done = len(done)
