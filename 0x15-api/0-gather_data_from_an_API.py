@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Python Script """
 import requests
-import json
 from sys import argv
 
 if __name__ == "__main__":
