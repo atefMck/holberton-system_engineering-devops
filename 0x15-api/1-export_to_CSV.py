@@ -10,10 +10,10 @@ if __name__ == "__main__":
 
     u_info = requests.get("{}/{}".format(u_link, uid)).json()
     username = u_info['username']
-
     todo_info = requests.get("{}/{}/todos".format(u_link, uid)).json()
     done = list()
-    with open('USER_ID.csv', 'w', newline='') as csvfile:
+    file = '{}.csv'.format(uid)
+    with open(file, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',',
                             quoting=csv.QUOTE_ALL)
         for todo in todo_info:
