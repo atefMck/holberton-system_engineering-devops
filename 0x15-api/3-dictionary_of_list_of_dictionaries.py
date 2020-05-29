@@ -2,7 +2,6 @@
 """ Python Script """
 import json
 import requests
-from sys import argv
 
 if __name__ == "__main__":
     u_link = "https://jsonplaceholder.typicode.com/users"
@@ -13,14 +12,15 @@ if __name__ == "__main__":
     for user in u_info:
         uid = user['id']
         username = user['username']
-        data[str(uid)] = []
-        todo_info = requests.get("{}/{}/todos".format(u_link, uid)).json()
-        for todo in todo_info:
+        todo_info = requests.get("{}/{}/todos".format(u_link, uid))
+        users = todo_info.json()
+        data[str(uid)] = list()
+        for todo in users:
             data[str(uid)].append(
                 {
+                    "username": username,
                     "task": todo['title'],
-                    "completed": todo['completed'],
-                    "username": username
+                    "completed": todo['completed']
                 }
             )
 
