@@ -14,7 +14,7 @@ def top_ten(subreddit):
     reddit_req = requests.get(link, headers=headers)
     reddit_info = reddit_req.json()
     try:
-        top_threads = reddit_info["data"]["children"][:10]
+        top_threads = reddit_info["data"]["children"][:11]
         for thread in top_threads:
             print(thread["data"]["title"])
     except Exception as e:
